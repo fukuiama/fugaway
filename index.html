@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fugaway – voli per viaggi brevi e flessibili</title>
+<meta name="description" content="Fugaway è un progetto in sviluppo per trovare voli economici per viaggi brevi: in giornata, 2 o 3 giorni, con aeroporti diversi e filtri orari.">
+<style>
+  :root { --bg:#f7f8fa; --fg:#14171f; --muted:#5b6475; --card:#ffffff; --accent:#1a6bff; --line:#e3e6ec; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f1218; --fg:#eef0f5; --muted:#9aa3b5; --card:#171b24; --accent:#5b97ff; --line:#262b38; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--fg); line-height:1.55; }
+  .wrap { max-width:720px; margin:0 auto; padding:40px 16px 64px; }
+  header { display:flex; justify-content:space-between; align-items:center; margin-bottom:48px; }
+  .logo { font-weight:700; font-size:1.25rem; letter-spacing:-.01em; }
+  .lang button { background:none; border:1px solid var(--line); color:var(--muted); padding:4px 10px; border-radius:6px; cursor:pointer; font:inherit; font-size:.85rem; }
+  .lang button.on { color:var(--fg); border-color:var(--accent); }
+  h1 { font-size:clamp(1.9rem,6vw,2.7rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 16px; }
+  p.lead { font-size:1.1rem; color:var(--muted); margin:0 0 32px; }
+  .cards { display:grid; gap:12px; margin-bottom:40px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .card h3 { margin:0 0 4px; font-size:1rem; }
+  .card p { margin:0; color:var(--muted); font-size:.95rem; }
+  .status { border-left:3px solid var(--accent); padding:4px 0 4px 14px; color:var(--muted); margin-bottom:32px; }
+  a.btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:12px 20px; border-radius:10px; font-weight:600; }
+  footer { margin-top:56px; font-size:.85rem; color:var(--muted); border-top:1px solid var(--line); padding-top:16px; }
+  [data-l] { display:none; }
+  html[lang="it"] [data-l="it"], html[lang="en"] [data-l="en"] { display:block; }
+  html[lang="it"] span[data-l="it"], html[lang="en"] span[data-l="en"] { display:inline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">Fugaway</div>
+    <div class="lang">
+      <button id="b-it" class="on" type="button">IT</button>
+      <button id="b-en" type="button">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 data-l="it">Voli per viaggi brevi, trovati per durata e prezzo.</h1>
+    <h1 data-l="en">Flights for short trips, found by length and price.</h1>
+
+    <p class="lead" data-l="it">Fugaway è un progetto in sviluppo per chi vuole partire per un giorno, due o tre, spendendo il meno possibile e senza perdere tempo con filtri complicati.</p>
+    <p class="lead" data-l="en">Fugaway is a project in development for travellers who want a one-, two- or three-day trip at the lowest price, without wrestling with complicated filters.</p>
+
+    <div class="cards">
+      <div class="card" data-l="it"><h3>Durata esatta</h3><p>Scegli una finestra (per esempio “novembre”) e quanto vuoi restare: in giornata, 2 o 3 giorni.</p></div>
+      <div class="card" data-l="en"><h3>Exact trip length</h3><p>Pick a window (e.g. “November”) and how long you want to stay: same day, 2 or 3 days.</p></div>
+
+      <div class="card" data-l="it"><h3>Aeroporti diversi</h3><p>Andata da un aeroporto, ritorno da un altro, in un’unica ricerca.</p></div>
+      <div class="card" data-l="en"><h3>Different airports</h3><p>Fly out of one airport and back from another in a single search.</p></div>
+
+      <div class="card" data-l="it"><h3>Orari come criterio di ricerca</h3><p>Partenza dopo le 18, ritorno prima delle 22: gli orari fanno parte della ricerca, non sono un filtro finale.</p></div>
+      <div class="card" data-l="en"><h3>Times as search criteria</h3><p>Depart after 6 pm, return before 10 pm: times are part of the search, not an afterthought.</p></div>
+    </div>
+
+    <div class="status" data-l="it">Stato: prototipo in costruzione. Il servizio non è ancora disponibile. Questa pagina descrive l’idea; i prezzi dei voli verranno da partner terzi e le prenotazioni si completeranno sui loro siti.</div>
+    <div class="status" data-l="en">Status: prototype under construction. The service is not available yet. This page describes the idea; flight prices will come from third-party partners and bookings will be completed on their sites.</div>
+
+    <a class="btn" href="mailto:fukuiama87@gmail.com?subject=Fugaway" data-l="it" style="display:none">Scrivimi per saperne di più</a>
+    <a class="btn" href="mailto:fukuiama87@gmail.com?subject=Fugaway" data-l="en" style="display:none">Get in touch</a>
+  </main>
+
+  <footer>
+    <span data-l="it">© Fugaway – Salvatore Iorio, Milano. Progetto indipendente. Questo sito non raccoglie dati personali: se mi scrivi via email, uso il tuo indirizzo solo per risponderti.</span>
+    <span data-l="en">© Fugaway – Salvatore Iorio, Milan. Independent project. This site does not collect personal data: if you email me, I use your address only to reply.</span>
+  </footer>
+</div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    function set(l) {
+      root.lang = l;
+      document.getElementById('b-it').className = l === 'it' ? 'on' : '';
+      document.getElementById('b-en').className = l === 'en' ? 'on' : '';
+      document.querySelectorAll('a.btn').forEach(function (a) {
+        a.style.display = a.getAttribute('data-l') === l ? 'inline-block' : 'none';
+      });
+    }
+    document.getElementById('b-it').onclick = function () { set('it'); };
+    document.getElementById('b-en').onclick = function () { set('en'); };
+    set((navigator.language || 'it').slice(0, 2) === 'it' ? 'it' : 'en');
+  })();
+</script>
+</body>
+</html>
